@@ -361,7 +361,7 @@ body[data-tone="dark"] .counter { color: #b9d6c8; }
 .method-foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.2rem; font-size: 1.28rem; line-height: 1.36; }
 .method-foot b { font-weight: 700; }
 
-/* ---------- Dashboard slides (5, 7, 9) ---------- */
+/* ---------- Dashboard slides (5, 7) ---------- */
 .dash-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.6rem; }
 .dash-head .sub { margin-top: 0.35rem; font-size: 1.05rem; color: var(--muted); max-width: 46em; }
 .pick { display: flex; flex-direction: column; gap: 0.25rem; flex-shrink: 0; font-size: 0.86rem; font-weight: 600; }
@@ -392,7 +392,6 @@ body[data-tone="dark"] .counter { color: #b9d6c8; }
 .cards { flex: 1; min-height: 0; display: grid; gap: 0.9rem; margin-top: 0.9rem; }
 .cards.results { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.3fr); }
 .cards.scenario { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr); }
-.cards.backup { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
 .card {
   display: flex;
   flex-direction: column;
@@ -531,24 +530,6 @@ body[data-tone="dark"] .counter { color: #b9d6c8; }
 .limits li { position: relative; padding-left: 1.1rem; }
 .limits li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--mint); }
 
-/* ---------- 9. Backup ---------- */
-.s-backup .card { padding: 1.3rem 1.5rem 1.3rem; }
-.s-backup .card h3 { font-size: 1.5rem; }
-.s-backup .card .sub { font-size: 1.05rem; }
-.s-backup .callout { margin-top: auto; font-size: 1.18rem; padding: 0.8rem 1rem; }
-.s-backup .segments span { font-size: 1.02rem; padding: 0.32rem 0.85rem; }
-.table-controls { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.8rem; margin-top: 1.1rem; }
-.table-wrap { overflow: auto; margin-top: 0.9rem; }
-table { width: 100%; border-collapse: collapse; text-align: right; font-variant-numeric: tabular-nums; }
-th, td { padding: 1.05rem 0.8rem; border-bottom: 1px solid var(--line); font-size: 1.45rem; }
-thead th { padding: 0.6rem 0.8rem; font-size: 1.02rem; font-weight: 600; color: var(--muted); }
-th:first-child, td:first-child { text-align: left; }
-tbody th { font-weight: 600; }
-td b { font-weight: 700; color: #0a7a59; }
-.notes { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 0.7rem; margin: 0.7rem 0 0; }
-.notes div { font-size: 1.08rem; line-height: 1.38; color: var(--muted); }
-.notes b { display: block; margin-bottom: 0.1rem; font-size: 1.14rem; font-weight: 700; color: var(--ink); }
-
 /* ---------- Short screens: let slides grow instead of squeezing ---------- */
 @media (max-height: 610px), (max-width: 900px) {
   .deck { scroll-snap-type: y proximity; }
@@ -569,7 +550,7 @@ td b { font-weight: 700; color: #0a7a59; }
   .s-question .second { font-size: 1.15rem; }
   .s-question .top { flex-direction: column; gap: 0.2rem; }
   .s-question .facts, .s-why .body, .s-idea .body, .claim, .steps, .method-foot, .tiles,
-  .cards.results, .cards.scenario, .cards.backup, .flow, .levers, .bridge-foot, .findings, .outputs {
+  .cards.results, .cards.scenario, .flow, .levers, .bridge-foot, .findings, .outputs {
     grid-template-columns: minmax(0, 1fr);
   }
   .s-question .facts { gap: 1rem; margin-top: 2rem; }
@@ -578,7 +559,7 @@ td b { font-weight: 700; color: #0a7a59; }
   .chain li.arrow { justify-content: center; }
   .chain li.arrow svg, .flow .to svg { transform: rotate(90deg); }
   .flow .to { justify-content: center; }
-  .dash-head, .table-controls { flex-direction: column; align-items: stretch; }
+  .dash-head { flex-direction: column; align-items: stretch; }
   .months { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .legend-row { display: block; }
   .legend-row span { display: block; text-align: left !important; justify-self: start !important; white-space: normal !important; margin-top: 0.4rem; padding-left: 1.6rem; position: relative; }
@@ -610,7 +591,6 @@ td b { font-weight: 700; color: #0a7a59; }
   .months span { height: 2.4rem; font-size: 1rem; }
   .legend-row { font-size: 0.95rem; }
   .outputs b { font-size: 2.2rem; }
-  th, td { font-size: 1.05rem; padding: 0.7rem 0.5rem; }
   .s-question .facts { font-size: 1.05rem; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -622,7 +602,7 @@ td b { font-weight: 700; color: #0a7a59; }
 <body data-tone="dark">
 
 <nav class="rail" id="rail" aria-label="Slides"></nav>
-<div class="counter" aria-hidden="true"><span id="counter-now">1</span> / <span id="counter-all">9</span></div>
+<div class="counter" aria-hidden="true"><span id="counter-now">1</span> / <span id="counter-all">8</span></div>
 
 <main class="deck" id="deck">
 
@@ -860,43 +840,6 @@ td b { font-weight: 700; color: #0a7a59; }
     </div>
   </section>
 
-  <!-- 9. Backup for questions -->
-  <section class="slide is-dash s-backup" data-title="Backup" aria-label="Backup for questions">
-    <p class="where"><b>9</b>Backup for questions</p>
-    <div class="dash-head">
-      <div>
-        <h2>Mortgage-payment backtest and method notes</h2>
-        <p class="sub">Did better price forecasts give better payment estimates? Both forecasts use the same observed mortgage rates and are compared with the payment implied by actual prices.</p>
-      </div>
-    </div>
-    <div class="cards backup">
-      <article class="card">
-        <h3>Payment estimate accuracy</h3>
-        <p id="sample-note" class="sub"></p>
-        <div class="table-controls">
-          <fieldset class="segments" id="regimes"><legend class="sr">Mortgage rate environment</legend><label><input type="radio" name="regime" value="all" checked><span>All months</span></label><label><input type="radio" name="regime" value="fall"><span>Rates fell</span></label><label><input type="radio" name="regime" value="rise"><span>Rates rose</span></label></fieldset>
-          <label class="pick">Sample <select id="scope"><option value="gta">All 15 municipalities</option><option value="area">Selected municipality</option></select></label>
-        </div>
-        <div class="table-wrap"><table>
-          <thead><tr><th scope="col">Price forecast</th><th scope="col">Payment RMSE</th><th scope="col">Payment MAE</th><th scope="col">Correct rise or fall</th></tr></thead>
-          <tbody id="payment-table"></tbody>
-        </table></div>
-        <p class="callout">When rates fell, listings lowered payment RMSE: <b data-bind="falling">8.82 → 7.83</b> percentage points. Across all months the two models were nearly tied.</p>
-      </article>
-      <article class="card">
-        <h3>Method notes</h3>
-        <div class="notes">
-          <div><b>Data</b>TRREB Market Watch: monthly sales, new listings and median resale price for all home types. Bank of Canada series V122667786: the rate on new uninsured fixed-rate mortgages of five years or more.</div>
-          <div><b>Models</b>Refit every month on a growing window of past data, using only six-month outcomes that were complete. The ratio is total sales ÷ total new listings over months two to four before the forecast, which leaves a one-month reporting gap.</div>
-          <div><b>AR(1) benchmark</b>It uses last month's price growth to forecast one month at a time, six times, and adds the results. It scored <span data-bind="ar1">11.69</span> RMSE, behind both other models.</div>
-          <div><b>Uncertainty</b>Mean squared-error gain of <span data-bind="boot-mean">2.99</span>, with a 95% block-bootstrap interval of <span data-bind="boot-low">−29.59</span> to <span data-bind="boot-high">+26.79</span> (12-month blocks, 5,000 draws).</div>
-          <div><b>Mortgage math</b>Semi-annual compounding and monthly payments over 25 years. The percent change in the payment does not depend on the down-payment share.</div>
-        </div>
-      </article>
-    </div>
-    <p class="source">Sources: TRREB Market Watch and Bank of Canada.</p>
-  </section>
-
 </main>
 
 <script>
@@ -994,7 +937,6 @@ const bound = {
   'boot-low': plain(data.bootstrap.lower),
   'boot-high': signed(data.bootstrap.upper),
   'ar1': dec(data.ar1[0]),
-  'falling': pair(data.payments.fall[0][0], data.payments.fall[1][0]),
   'toronto-growth': `${dec(toronto.growth, 1)}%`,
   'toronto-end': longMonth(toronto.end),
   'toronto-rate': `${dec(toronto.rate)}%`,
@@ -1322,31 +1264,6 @@ function renderScenario() {
   set('dollars', `Estimated monthly payment: ${money.format(startingPayment)} in ${longMonth(date)} and ${money.format(startingPayment * paymentRatio)} in this scenario.`);
 }
 
-// ---------- Slide 9: payment backtest ----------
-function renderPayment() {
-  const regime = selected('regime');
-  const pooled = $('scope').value === 'gta';
-  const stats = pooled ? data.payments[regime] : area().payment[regime];
-  const count = data.dates[regime];
-  set('sample-note', `${pooled ? 'All 15 municipalities' : currentArea}: ${count} forecast starting months, ${whole.format(count * (pooled ? names.length : 1))} municipality-months.`);
-  $('payment-table').replaceChildren();
-  stats.forEach((values, index) => {
-    const row = document.createElement('tr');
-    [['Price-only', 'With listings'][index], ...values.map((v, j) => dec(v) + (j === 2 ? '%' : ' pp'))].forEach((value, j) => {
-      const cell = document.createElement(j === 0 ? 'th' : 'td');
-      if (!j) cell.scope = 'row';
-      const best = j === 3 ? values[j - 1] > stats[1 - index][j - 1] : values[j - 1] < stats[1 - index][j - 1];
-      if (j && best) {
-        const strong = document.createElement('b');
-        strong.textContent = value;
-        cell.append(strong);
-      } else cell.textContent = value;
-      row.append(cell);
-    });
-    $('payment-table').append(row);
-  });
-}
-
 function selectArea(name, focusArea = null) {
   currentArea = name;
   for (const picker of pickers) picker.value = name;
@@ -1363,13 +1280,10 @@ function selectArea(name, focusArea = null) {
   strong.textContent = helped ? 'Listings helped here. ' : 'Listings did not help here. ';
   $('area-stats').append(strong, `Backtest RMSE: ${dec(areaBase[0])} price-only, ${dec(areaListings[0])} with listings.`);
   renderScenario();
-  renderPayment();
 }
 
 for (const picker of pickers) picker.addEventListener('change', () => selectArea(picker.value));
 $('metrics').addEventListener('change', () => renderRankings());
-$('regimes').addEventListener('change', renderPayment);
-$('scope').addEventListener('change', renderPayment);
 $('future-rate').addEventListener('input', renderScenario);
 $('income').addEventListener('input', renderScenario);
 $('reset').addEventListener('click', () => {
